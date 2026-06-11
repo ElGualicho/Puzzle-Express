@@ -1,0 +1,17 @@
+.git
+.git/**
+.wrangler
+.wrangler/**
+src
+src/**
+node_modules
+node_modules/**
+.assetsignore
+package.json
+package-lock.json
+wrangler.toml
+wrangler.json
+wrangler.jsonc
+schema.sql
+README-SCORES.md
+note-dev-puzzle-express.md

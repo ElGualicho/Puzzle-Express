@@ -1,6 +1,6 @@
-name = "puzzle-express"
+name = "puzzlexpress"
 main = "src/worker.mjs"
-compatibility_date = "2026-06-10"
+compatibility_date = "2026-06-11"
 
 [assets]
 directory = "."
@@ -10,4 +10,4 @@ run_worker_first = ["/api/*"]
 [[d1_databases]]
 binding = "DB"
 database_name = "puzzle-express-scores"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "314e98b0-e667-4fa2-a3aa-20ac928c38d0"
