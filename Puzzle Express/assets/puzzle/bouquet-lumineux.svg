@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Bouquet lumineux</title>
+  <desc id="desc">Un bouquet de fleurs colorées posé devant une fenêtre.</desc>
+  <defs>
+    <linearGradient id="wall" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fffdf7"/>
+      <stop offset="1" stop-color="#e5f3f8"/>
+    </linearGradient>
+    <linearGradient id="window" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#b7e1ee"/>
+      <stop offset="1" stop-color="#f7fbfd"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#wall)"/>
+  <rect x="120" y="95" width="380" height="305" rx="8" fill="url(#window)" stroke="#094D70" stroke-width="16"/>
+  <path d="M310 105 L310 396 M130 250 L492 250" stroke="#094D70" stroke-width="12"/>
+  <rect x="720" y="86" width="250" height="235" rx="8" fill="#8ac7b4"/>
+  <circle cx="845" cy="205" r="72" fill="#fffdf7" opacity=".7"/>
+  <rect x="0" y="550" width="1200" height="250" fill="#d8911f"/>
+  <rect x="0" y="520" width="1200" height="52" fill="#f2b84b"/>
+  <ellipse cx="610" cy="630" rx="250" ry="54" fill="#ad7229" opacity=".28"/>
+  <path d="M520 455 C505 535 535 660 610 690 C700 654 724 532 690 455 Z" fill="#094D70"/>
+  <path d="M545 468 C568 505 646 505 675 468 C660 595 630 638 610 650 C585 634 558 592 545 468 Z" fill="#e5f3f8" opacity=".8"/>
+  <g stroke="#2f8f67" stroke-width="12" stroke-linecap="round">
+    <path d="M610 468 C570 395 520 330 445 245"/>
+    <path d="M610 468 C630 370 662 300 750 220"/>
+    <path d="M610 468 C595 360 595 285 610 190"/>
+    <path d="M610 468 C545 415 470 385 360 365"/>
+    <path d="M610 468 C680 400 760 370 880 350"/>
+  </g>
+  <g>
+    <circle cx="440" cy="242" r="36" fill="#e87961"/>
+    <circle cx="405" cy="252" r="34" fill="#e87961"/>
+    <circle cx="426" cy="205" r="35" fill="#e87961"/>
+    <circle cx="466" cy="213" r="34" fill="#e87961"/>
+    <circle cx="443" cy="230" r="24" fill="#f2b84b"/>
+  </g>
+  <g>
+    <circle cx="750" cy="220" r="40" fill="#f2b84b"/>
+    <circle cx="717" cy="240" r="33" fill="#f2b84b"/>
+    <circle cx="774" cy="260" r="35" fill="#f2b84b"/>
+    <circle cx="787" cy="205" r="34" fill="#f2b84b"/>
+    <circle cx="754" cy="232" r="22" fill="#094D70"/>
+  </g>
+  <g>
+    <circle cx="610" cy="190" r="34" fill="#8ac7b4"/>
+    <circle cx="576" cy="207" r="34" fill="#8ac7b4"/>
+    <circle cx="638" cy="218" r="34" fill="#8ac7b4"/>
+    <circle cx="626" cy="165" r="32" fill="#8ac7b4"/>
+    <circle cx="611" cy="198" r="22" fill="#fffdf7"/>
+  </g>
+  <g>
+    <circle cx="360" cy="365" r="36" fill="#c76f9f"/>
+    <circle cx="332" cy="335" r="30" fill="#c76f9f"/>
+    <circle cx="396" cy="336" r="31" fill="#c76f9f"/>
+    <circle cx="390" cy="392" r="32" fill="#c76f9f"/>
+    <circle cx="363" cy="362" r="20" fill="#f2b84b"/>
+  </g>
+  <g>
+    <circle cx="880" cy="350" r="38" fill="#e87961"/>
+    <circle cx="838" cy="353" r="31" fill="#e87961"/>
+    <circle cx="898" cy="314" r="31" fill="#e87961"/>
+    <circle cx="910" cy="383" r="30" fill="#e87961"/>
+    <circle cx="881" cy="350" r="22" fill="#fffdf7"/>
+  </g>
+  <path d="M213 641 C315 600 418 638 484 612" fill="none" stroke="#fffdf7" stroke-width="14" stroke-linecap="round" opacity=".7"/>
+  <path d="M780 650 C900 612 1010 648 1086 608" fill="none" stroke="#fffdf7" stroke-width="14" stroke-linecap="round" opacity=".62"/>
+</svg>

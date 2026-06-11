@@ -1,0 +1,12 @@
+{
+  "name": "puzzle-express",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy",
+    "db:create": "npx wrangler d1 create puzzle-express-scores",
+    "db:init:local": "npx wrangler d1 execute puzzle-express-scores --local --file=./schema.sql",
+    "db:init:remote": "npx wrangler d1 execute puzzle-express-scores --remote --file=./schema.sql"
+  }
+}

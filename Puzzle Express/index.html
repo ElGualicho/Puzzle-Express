@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Puzzle Express</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main id="app" class="app-main" tabindex="-1"></main>
+
+    <dialog id="modelDialog" class="model-dialog" aria-labelledby="modelDialogTitle">
+      <div class="dialog-inner">
+        <div class="dialog-heading">
+          <h2 id="modelDialogTitle">Modèle</h2>
+          <form method="dialog">
+            <button class="button ghost compact" type="submit">Fermer</button>
+          </form>
+        </div>
+        <img id="modelDialogImage" alt="">
+      </div>
+    </dialog>
+
+    <div id="announcer" class="sr-only" aria-live="polite"></div>
+  </body>
+</html>

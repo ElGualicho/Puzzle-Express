@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Jardin calme</title>
+  <desc id="desc">Un jardin coloré avec une maison, un arbre, un banc et des fleurs.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#b9e2ef"/>
+      <stop offset="1" stop-color="#f7fbfd"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#8ac7b4"/>
+      <stop offset="1" stop-color="#4f9b73"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="1015" cy="130" r="78" fill="#f2b84b"/>
+  <path d="M0 560 C170 506 318 600 470 546 C642 485 800 546 1200 485 L1200 800 L0 800 Z" fill="url(#grass)"/>
+  <path d="M160 410 L310 270 L465 410 Z" fill="#e87961"/>
+  <rect x="195" y="405" width="250" height="180" rx="8" fill="#fff4d8"/>
+  <rect x="232" y="458" width="64" height="68" rx="6" fill="#094D70"/>
+  <rect x="334" y="455" width="72" height="90" rx="6" fill="#d8911f"/>
+  <path d="M545 462 C535 365 620 300 708 342 C760 240 900 272 905 392 C1010 402 1045 525 960 580 L602 580 C545 560 508 510 545 462 Z" fill="#2f8f67"/>
+  <rect x="760" y="405" width="36" height="210" rx="10" fill="#8b5e3c"/>
+  <circle cx="748" cy="292" r="72" fill="#57ad7f"/>
+  <circle cx="832" cy="322" r="92" fill="#4f9b73"/>
+  <circle cx="688" cy="360" r="78" fill="#65ba8e"/>
+  <rect x="620" y="615" width="270" height="28" rx="12" fill="#6b4a35"/>
+  <rect x="655" y="570" width="205" height="38" rx="8" fill="#d8911f"/>
+  <rect x="678" y="642" width="18" height="68" fill="#6b4a35"/>
+  <rect x="828" y="642" width="18" height="68" fill="#6b4a35"/>
+  <ellipse cx="530" cy="664" rx="54" ry="32" fill="#20303a"/>
+  <circle cx="565" cy="629" r="27" fill="#20303a"/>
+  <path d="M572 603 L588 577 L597 612 Z" fill="#20303a"/>
+  <circle cx="575" cy="626" r="4" fill="#fffdf7"/>
+  <path d="M493 657 C465 645 450 618 440 590" fill="none" stroke="#20303a" stroke-width="16" stroke-linecap="round"/>
+  <g fill="#f2b84b">
+    <circle cx="124" cy="682" r="18"/>
+    <circle cx="184" cy="712" r="14"/>
+    <circle cx="250" cy="665" r="17"/>
+    <circle cx="998" cy="690" r="18"/>
+    <circle cx="1060" cy="638" r="15"/>
+  </g>
+  <g fill="#e87961">
+    <circle cx="152" cy="630" r="14"/>
+    <circle cx="292" cy="715" r="19"/>
+    <circle cx="935" cy="650" r="15"/>
+    <circle cx="1120" cy="710" r="18"/>
+  </g>
+  <path d="M65 744 C210 700 330 770 455 718 C520 690 590 704 650 744" fill="none" stroke="#fffdf7" stroke-width="13" stroke-linecap="round" opacity=".7"/>
+</svg>
