@@ -79,6 +79,20 @@ img {
   background: var(--screen);
 }
 
+.app-main[data-view="menu"]::before,
+.app-main[data-view="scores"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image: url("assets/background.webp");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
 @media (min-width: 981px) {
   body[data-view="menu"],
   body[data-view="play"],
@@ -126,19 +140,6 @@ img {
 .start-view,
 .scores-view {
   overflow: hidden;
-}
-
-.start-view::before,
-.scores-view::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image: url("assets/background.webp");
-  background-position: center;
-  background-size: cover;
-  opacity: 0.05;
-  pointer-events: none;
 }
 
 .start-view > *,
