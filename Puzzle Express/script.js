@@ -31,6 +31,12 @@ const LEVEL_ORDER = Object.keys(LEVELS);
 
 const PUZZLE_IMAGES = [
   {
+    id: "chattest-puzzle",
+    title: "Chat test",
+    src: "assets/puzzle/chattest_puzzle.webp",
+    alt: "Image de test pour le puzzle"
+  },
+  {
     id: "jardin-calme",
     title: "Jardin calme",
     src: "assets/puzzle/jardin-calme.svg",
@@ -257,7 +263,7 @@ function startGame(levelKey, preferredImage = null) {
 
   state.view = "play";
   state.levelKey = levelKey;
-  state.image = preferredImage || pickRandomImage();
+  state.image = preferredImage || pickRequestedImage() || pickRandomImage();
   state.board = createShuffledBoard(pieceCount);
   state.selectedCell = null;
   state.moves = 0;
@@ -648,6 +654,16 @@ function createShuffledBoard(count) {
 
 function pickRandomImage() {
   return PUZZLE_IMAGES[Math.floor(Math.random() * PUZZLE_IMAGES.length)];
+}
+
+function pickRequestedImage() {
+  const requestedImageId = new URLSearchParams(window.location.search).get("image");
+
+  if (!requestedImageId) {
+    return null;
+  }
+
+  return PUZZLE_IMAGES.find((image) => image.id === requestedImageId) || null;
 }
 
 function openModelDialog() {
