@@ -316,13 +316,19 @@ function renderGame() {
             `}
           </div>
 
-          <div
-            class="puzzle-board${isLevelComplete ? " is-complete" : ""}"
-            style="--rows: ${level.rows}; --cols: ${level.cols};"
-            aria-label="Puzzle en ${level.rows} lignes et ${level.cols} colonnes"
-          >
-            ${state.board.map((pieceIndex, cellIndex) => renderPiece(pieceIndex, cellIndex, level)).join("")}
-          </div>
+          ${isLevelComplete ? `
+            <figure class="completed-puzzle" aria-label="${escapeHtml(state.image.alt)}">
+              <img src="${state.image.src}" alt="${escapeHtml(state.image.alt)}">
+            </figure>
+          ` : `
+            <div
+              class="puzzle-board"
+              style="--rows: ${level.rows}; --cols: ${level.cols};"
+              aria-label="Puzzle en ${level.rows} lignes et ${level.cols} colonnes"
+            >
+              ${state.board.map((pieceIndex, cellIndex) => renderPiece(pieceIndex, cellIndex, level)).join("")}
+            </div>
+          `}
 
           ${isLevelComplete ? `
             <div class="action-row completion-actions">
