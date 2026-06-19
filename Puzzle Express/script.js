@@ -60,6 +60,7 @@ const STORAGE_KEY = "puzzle-express-scores-v1";
 const PENDING_SCORES_KEY = "puzzle-express-pending-scores-v1";
 const DEVICE_ID_KEY = "puzzle-express-device-id-v1";
 const SITE_ID_KEY = "puzzle-express-site-id-v1";
+const ACTIVE_SESSION_KEY = "puzzle-express-active-session-v1";
 const SCORE_API_URL = "/api/scores";
 const SCORE_LIMIT = 10;
 
@@ -91,8 +92,11 @@ const state = {
 
 app.addEventListener("click", handleAppClick);
 app.addEventListener("submit", handleAppSubmit);
+window.addEventListener("pagehide", persistActiveSession);
 
-renderMenu();
+if (!restoreActiveSession()) {
+  renderMenu();
+}
 void initScores();
 
 function handleAppClick(event) {
@@ -193,6 +197,7 @@ function renderMenu() {
   state.selectedCell = null;
   state.levelComplete = false;
   state.highlightCell = null;
+  clearActiveSession();
   setAppView("menu");
 
   app.innerHTML = `
@@ -232,6 +237,7 @@ function renderScoresView(shouldRefresh = true) {
   state.selectedCell = null;
   state.levelComplete = false;
   state.highlightCell = null;
+  persistActiveSession();
   setAppView("scores");
 
   app.innerHTML = `
@@ -289,6 +295,7 @@ function renderGame() {
     ? "Image reconstituée."
     : "Sélectionnez deux morceaux pour les échanger.";
   setAppView("play");
+  persistActiveSession();
 
   app.innerHTML = `
     <section class="screen play-view" aria-labelledby="playTitle">
@@ -496,6 +503,7 @@ function renderFinished() {
   const level = LEVELS[state.levelKey];
   const noHintBonus = state.hints === 0 ? "Oui" : "Non";
   setAppView("finished");
+  persistActiveSession();
 
   app.innerHTML = `
     <section class="screen finish-view" aria-labelledby="finishTitle">
@@ -567,6 +575,135 @@ function renderSavedMessage() {
 function setAppView(view) {
   app.dataset.view = view;
   document.body.dataset.view = view;
+}
+
+function restoreActiveSession() {
+  const savedSession = readActiveSession();
+
+  if (!savedSession) {
+    return false;
+  }
+
+  if (savedSession.view === "scores") {
+    renderScoresView();
+    return true;
+  }
+
+  if (savedSession.view !== "play" && savedSession.view !== "finished") {
+    clearActiveSession();
+    return false;
+  }
+
+  const level = LEVELS[savedSession.levelKey];
+  const image = PUZZLE_IMAGES.find((item) => item.id === savedSession.imageId);
+  const pieceCount = level ? level.rows * level.cols : 0;
+
+  if (!level || !image || !isValidBoard(savedSession.board, pieceCount)) {
+    clearActiveSession();
+    return false;
+  }
+
+  state.view = savedSession.view;
+  state.levelKey = savedSession.levelKey;
+  state.image = image;
+  state.board = [...savedSession.board];
+  state.selectedCell = Number.isInteger(savedSession.selectedCell)
+    && savedSession.selectedCell >= 0
+    && savedSession.selectedCell < pieceCount
+    ? savedSession.selectedCell
+    : null;
+  state.moves = readNonNegativeInteger(savedSession.moves);
+  state.hints = readNonNegativeInteger(savedSession.hints);
+  state.elapsedSeconds = readNonNegativeInteger(savedSession.elapsedSeconds);
+  state.startedAt = readNonNegativeInteger(savedSession.startedAt) || Date.now();
+  state.score = readNonNegativeInteger(savedSession.score);
+  state.scoreSaved = Boolean(savedSession.scoreSaved);
+  state.scoreSaveStatus = savedSession.scoreSaveStatus === "pending" ? "pending" : "synced";
+  state.playerName = String(savedSession.playerName || "").slice(0, 14);
+  state.levelComplete = Boolean(savedSession.levelComplete);
+  state.highlightCell = null;
+
+  if (state.view === "play") {
+    if (!state.levelComplete) {
+      state.elapsedSeconds = Math.max(state.elapsedSeconds, Math.floor((Date.now() - state.startedAt) / 1000));
+    }
+
+    renderGame();
+
+    if (!state.levelComplete) {
+      startTimer();
+    }
+
+    announce("Partie restaurée.");
+    return true;
+  }
+
+  state.levelComplete = false;
+  renderFinished();
+  return true;
+}
+
+function persistActiveSession() {
+  if (state.view === "menu") {
+    clearActiveSession();
+    return;
+  }
+
+  const snapshot = { version: 1, view: state.view };
+
+  if (state.view === "play" || state.view === "finished") {
+    snapshot.levelKey = state.levelKey;
+    snapshot.imageId = state.image?.id || "";
+    snapshot.board = state.board;
+    snapshot.selectedCell = state.selectedCell;
+    snapshot.moves = state.moves;
+    snapshot.hints = state.hints;
+    snapshot.elapsedSeconds = state.elapsedSeconds;
+    snapshot.startedAt = state.startedAt;
+    snapshot.score = state.score;
+    snapshot.scoreSaved = state.scoreSaved;
+    snapshot.scoreSaveStatus = state.scoreSaveStatus;
+    snapshot.playerName = state.playerName;
+    snapshot.levelComplete = state.levelComplete;
+  }
+
+  try {
+    sessionStorage.setItem(ACTIVE_SESSION_KEY, JSON.stringify(snapshot));
+  } catch (error) {
+    // The game remains playable when browser storage is unavailable.
+  }
+}
+
+function readActiveSession() {
+  try {
+    const savedSession = JSON.parse(sessionStorage.getItem(ACTIVE_SESSION_KEY) || "null");
+    return savedSession?.version === 1 ? savedSession : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function clearActiveSession() {
+  try {
+    sessionStorage.removeItem(ACTIVE_SESSION_KEY);
+  } catch (error) {
+    // Storage can be disabled in a public browser configuration.
+  }
+}
+
+function isValidBoard(board, pieceCount) {
+  if (!Array.isArray(board) || board.length !== pieceCount) {
+    return false;
+  }
+
+  const pieces = new Set(board);
+  return pieces.size === pieceCount
+    && board.every((pieceIndex) => Number.isInteger(pieceIndex) && pieceIndex >= 0 && pieceIndex < pieceCount);
+}
+
+function readNonNegativeInteger(value) {
+  const number = Number(value);
+  return Number.isFinite(number) ? Math.max(0, Math.floor(number)) : 0;
 }
 
 function renderScorePanel(scores, allowClear) {
