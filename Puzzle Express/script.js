@@ -37,22 +37,112 @@ const PUZZLE_IMAGES = [
     alt: "Image de test pour le puzzle"
   },
   {
-    id: "jardin-calme",
-    title: "Jardin calme",
-    src: "assets/puzzle/jardin-calme.svg",
-    alt: "Un jardin coloré avec une maison, un arbre, un banc et des fleurs"
+    id: "chat-1",
+    title: "Chat 1",
+    src: "assets/puzzle/chat_1.webp",
+    alt: "Un chat photographié pour le puzzle 1"
   },
   {
-    id: "bouquet-lumineux",
-    title: "Bouquet lumineux",
-    src: "assets/puzzle/bouquet-lumineux.svg",
-    alt: "Un bouquet de fleurs colorées posé devant une fenêtre"
+    id: "chat-2",
+    title: "Chat 2",
+    src: "assets/puzzle/chat_2.webp",
+    alt: "Un chat photographié pour le puzzle 2"
   },
   {
-    id: "marche-doux",
-    title: "Marché doux",
-    src: "assets/puzzle/marche-doux.svg",
-    alt: "Une scène de marché avec des étals, des fruits et des façades colorées"
+    id: "chat-3",
+    title: "Chat 3",
+    src: "assets/puzzle/chat_3.webp",
+    alt: "Un chat photographié pour le puzzle 3"
+  },
+  {
+    id: "chat-4",
+    title: "Chat 4",
+    src: "assets/puzzle/chat_4.webp",
+    alt: "Un chat photographié pour le puzzle 4"
+  },
+  {
+    id: "chat-5",
+    title: "Chat 5",
+    src: "assets/puzzle/chat_5.webp",
+    alt: "Un chat photographié pour le puzzle 5"
+  },
+  {
+    id: "chat-6",
+    title: "Chat 6",
+    src: "assets/puzzle/chat_6.webp",
+    alt: "Un chat photographié pour le puzzle 6"
+  },
+  {
+    id: "photo-01",
+    title: "Photo 1",
+    src: "assets/puzzle/pexels-2149938750-37161677.webp",
+    alt: "Photographie utilisée comme image de puzzle 1"
+  },
+  {
+    id: "photo-02",
+    title: "Photo 2",
+    src: "assets/puzzle/pexels-alexisricardoalaurin-13374667.webp",
+    alt: "Photographie utilisée comme image de puzzle 2"
+  },
+  {
+    id: "photo-03",
+    title: "Photo 3",
+    src: "assets/puzzle/pexels-dudubangbang-27631892.webp",
+    alt: "Photographie utilisée comme image de puzzle 3"
+  },
+  {
+    id: "photo-04",
+    title: "Photo 4",
+    src: "assets/puzzle/pexels-hesi0-1510210.webp",
+    alt: "Photographie utilisée comme image de puzzle 4"
+  },
+  {
+    id: "photo-05",
+    title: "Photo 5",
+    src: "assets/puzzle/pexels-jaclou-dl-36953707.webp",
+    alt: "Photographie utilisée comme image de puzzle 5"
+  },
+  {
+    id: "photo-06",
+    title: "Photo 6",
+    src: "assets/puzzle/pexels-jaclou-dl-37662170.webp",
+    alt: "Photographie utilisée comme image de puzzle 6"
+  },
+  {
+    id: "photo-07",
+    title: "Photo 7",
+    src: "assets/puzzle/pexels-pixabay-158392.webp",
+    alt: "Photographie utilisée comme image de puzzle 7"
+  },
+  {
+    id: "photo-08",
+    title: "Photo 8",
+    src: "assets/puzzle/pexels-soubhagya23-4837682.webp",
+    alt: "Photographie utilisée comme image de puzzle 8"
+  },
+  {
+    id: "photo-09",
+    title: "Photo 9",
+    src: "assets/puzzle/pexels-stephane-hurbe-1267753-19225106.webp",
+    alt: "Photographie utilisée comme image de puzzle 9"
+  },
+  {
+    id: "photo-10",
+    title: "Photo 10",
+    src: "assets/puzzle/pexels-thierry-cuzin-2158246934-37320728.webp",
+    alt: "Photographie utilisée comme image de puzzle 10"
+  },
+  {
+    id: "photo-11",
+    title: "Photo 11",
+    src: "assets/puzzle/pexels-tommes-frites-1141358642-33646281.webp",
+    alt: "Photographie utilisée comme image de puzzle 11"
+  },
+  {
+    id: "photo-12",
+    title: "Photo 12",
+    src: "assets/puzzle/pexels-writchid-snipes-1112447913-33763808.webp",
+    alt: "Photographie utilisée comme image de puzzle 12"
   }
 ];
 
